@@ -1,6 +1,14 @@
 import React from 'react'
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Header = () => {
+    const navigate = useNavigate()
+
+    const onClickLogin = () => {
+        navigate('/Login')
+    }
+
     return (
         <div>
             <div className="main-header">
@@ -28,19 +36,20 @@ const Header = () => {
                         </div>
                         <nav id="navbar" className="navbar order-last order-lg-0">
                             <ul>
-                                <li><a className="nav-link scrollto active" href="index.html">Home</a></li>
-                                <li><a className="nav-link scrollto" href="./pages/departments.html">Departments</a></li>
-                                <li><a className="nav-link scrollto" href="./pages/doctors.html">Doctors</a></li>
-                                <li><a className="nav-link scrollto " href="./pages/about.html">About</a></li>
-                                <li><a className="nav-link scrollto" href="./pages/contact.html">Contact</a></li>
+                                <li><Link to="/" className="nav-link scrollto active">Home</Link></li>
+                                <li><Link to="/Departments" className="nav-link scrollto">Departments</Link></li>
+                                <li><Link to="/Doctors" className="nav-link scrollto">Doctors</Link></li>
+                                <li><Link to="/About" className="nav-link scrollto">About</Link></li>
+                                <li><Link to="/Contact" className="nav-link scrollto">Contact</Link></li>
                             </ul>
                             <i className="bi bi-list mobile-nav-toggle" />
                         </nav>
+                        <button onClick={onClickLogin} className="appointment-btn btn scrollto">
+                            <span className="d-none d-md-inline">Login</span>
+                        </button>
                         <a href="./pages/appointment.html" className="appointment-btn scrollto"><span className="d-none d-md-inline">Make an</span>
                             Appointment</a>
-                        <a href="#" className="appointment-btn scrollto">
-                            <span className="d-none d-md-inline">Login/ Signup</span>
-                        </a>
+
                     </div>
                 </header>
             </div>
